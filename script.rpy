@@ -147,11 +147,11 @@ label start:
     pause 3
     play sound 'audio/lift_stop.ogg'
     stop sound
-    scene office
+    scene office with dissolve
 
     e "Страшно осознавать, что мне пришлось подниматься на 70 этаж"
     e "Хорошо, что тут непрозрачные лифты"
-    sot "Это наша любимая комната. Предлагаю угадать название"
+    sot "Там дальше наша любимая комната. Предлагаю угадать название"
     n "Как я должна угадать? Я же тут впервые!"
     sot "Да не бойтесь, угадает даже тот, кто не видел нас в лицо."
     n "Нуу... Столовая.."
@@ -216,7 +216,7 @@ label start:
 
     play sound 'audio/lift_stop.ogg'
     stop sound
-    scene office
+    scene rabota
 
     sot "Поворачивайте налево и идёте до конца, там уже найдёте чай и прочие..."
     sotm "Маша, тихо! Босс идёт, нельзя разговаривать!"
@@ -234,10 +234,97 @@ label start:
     s "Как закончите, заходите ко мне на 69 этаж. Проведём вступительный диалог."
     n "Я уже скоро буду"
     s "Замечательно. Жду."
+    hide director
     e "Он мне очень знаком. Я точно его где-то видела!"
     sot "А почему вы не поехали с ним? Мы же закончили экскурсию?"
     n "Да как-то неловко просто"
     n "Я пойду как только закушу печеньку"
     sot "А вот это похвально!"
+    stop music fadeout 0.5
     hide director with moveinright
+    pause 3
+    n "Теперь можно вызывать лифт"
+
+    scene lift with dissolve:
+        easeout 0.03 xalign .51
+        easeout 0.03 yalign .49
+        easeout 0.03 xalign .49
+        easeout 0.03 yalign .51
+        repeat
+    play sound 'audio/lift.ogg' loop
+    pause 1
+    play sound 'audio/lift_stop.ogg'
+    stop sound
+    scene office with dissolve
+    scene sigma_office with dissolve
+
+    s "Итак, я посмотрел ваше портфолио, вот что я могу сказать."
+    s "Все эти милые вещи... тени, подбор цвета, композиция.."
+    e "Мои работы должны быть для этой работы как раз кстати"
+    e "Думаю, у меня идеальный стиль для этой машины"
+    s "Ваша работа обгоняет по качеству только вентилятор."
+    
+    show ventilator: 
+        xalign 0 yalign 0.5
+    play sound "audio/uououo.mp3"
+
+    n "Но..."
+    s "Но я всё равно вас беру. Но учтите, вы мне нужна только для квоты на 100 сотрудников,"
+    s "Так что одно нарушение и вы уволены."
+    n "Ясно... Ну хоть приняли..."
+    n "Досвидания..."
+    s "Ещё увидимся."
+
+    hide director
+    hide ventilator
+    scene office with dissolve
+
+    "Мортис" "И она действительно пыталась впечатлить его ЭТИМ?"
+    play audio "audio/hahaha.mp3"
+    "Эдгар" "Ахахахахахахахахаха"
+
+    play sound 'audio/topot.mp3'
+    scene toilet with dissolve
+    stop sound fadeout 1.0
+
+    e "Надо успокоиться... Дыхательная гимнастика"
+    e "Аааааааахх... Фууууууууух..."
+    e "Аааааааахх... Фууууууууух..."
+    e "Почему???"
+    e "Почему всё так? Всё же было идеально?? Как так всё вышло?"
+    e "Что мне теперь делать? Я специально переехала в город ради этой работы!!"
+    e "Так, всё, спокойно, он меня взял, не надо расстраиваться. Фуф."
+    e "Хааа... Не получается"
+    e "Надо узнать как надо себя вести, чтобы не впасть ему в немилость"
+    e "Пора идти в столовую, иначе я не успокоюсь"
+
+    scene lift with dissolve:
+        easeout 0.03 xalign .51
+        easeout 0.03 yalign .49
+        easeout 0.03 xalign .49
+        easeout 0.03 yalign .51
+        repeat
+    play sound 'audio/lift.ogg' loop
+    pause 1
+    play sound 'audio/lift_stop.ogg'
+    stop sound
+    scene stolovaia with dissolve
+    pause 2.0
+
+    e "Ном"
+    e "Хорошо, что бургеры из мака тут тоже продают"
+    e "Пора поиграть в Мику"
+
+    image main_menu1 = Movie(play="movies/miku.webm")
+    show main_menu1
+    window hide dissolve
+    pause 10
+    show director at right
+
+    s "Неплохо играешь."
+    s "Лучше меня."
+
+    scene stolovaia with dissolve
+
+    n "Да?"
     return
