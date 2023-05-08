@@ -297,7 +297,7 @@ screen navigation():
 
         if main_menu:
 
-            textbutton _("Начать") action Start()
+            textbutton _("НАЧАТЬ ПРИКЛЮЧЕНИЕ") action Start()
 
         else:
 
@@ -389,7 +389,7 @@ style main_menu_frame:
     background "gui/overlay/main_menu.png"
 
 style main_menu_vbox:
-    xalign 1.0
+    xalign 0.55
     xoffset -30
     xmaximum 1200
     yalign 1.0
